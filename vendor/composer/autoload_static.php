@@ -21,7 +21,9 @@ class ComposerStaticInit3134e1cad71ae9087c5445cc49443cff
     );
 
     public static $classMap = array (
-        'NikitaFeedBackPlugin\\View\\Enqueue' => __DIR__ . '/../..' . '/classes/View/Enqueue.php',
+        'NikitaFeedBackPlugin\\Controller\\Ajax' => __DIR__ . '/../..' . '/classes/Controller/Ajax.php',
+        'NikitaFeedBackPlugin\\Model\\Enqueue' => __DIR__ . '/../..' . '/classes/Model/Enqueue.php',
+        'NikitaFeedBackPlugin\\View\\Shortcodes' => __DIR__ . '/../..' . '/classes/View/Shortcodes.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
