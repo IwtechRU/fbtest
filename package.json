@@ -1,0 +1,20 @@
+{
+  "name": "ngff",
+  "version": "1.0.0",
+  "description": "Nikita's test assignment",
+  "main": "main.js",
+  "scripts": {
+    "build": "webpack --mode production --config webpack.config.js",
+    "start": "webpack --mode production --config webpack.config.js --watch"
+  },
+  "author": "Nikita Menshutin <info@nikita.global>",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "webpack": "^5.28.0"
+  },
+  "devDependencies": {
+    "ts-loader": "^8.1.0",
+    "typescript": "^4.2.3",
+    "webpack-cli": "^4.6.0"
+  }
+}

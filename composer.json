@@ -1,0 +1,18 @@
+{
+    "name": "nikita/ngff",
+    "description": "Wordpress plugin - shortcode with feedback form",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Nikita Menshutin",
+            "email": "info@nikita.global"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "NikitaFeedBackPlugin\\": "classes/"
+        }
+    },
+    "require": {}
+}
