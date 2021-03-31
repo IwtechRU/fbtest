@@ -21,10 +21,7 @@ class DB {
         return self::$wpdb;
     }
 
-    public static function query( $query ) {
-        if ( ! $query = self::DB()->prepare( $query ) ) {
-            return self::fail( 'Invalid request' );
-        }
+    private static function query( $query ) {
         $result = self::DB()->query( $query );
         if ( ! $result ) {
             return self::fail( self::DB()->last_error );

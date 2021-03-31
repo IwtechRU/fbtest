@@ -34,4 +34,3 @@ register_deactivation_hook( __FILE__, [ 'NikitaFeedBackPlugin\Controller\Core', 
 add_action( 'wp_enqueue_scripts', [ 'NikitaFeedBackPlugin\Model\Enqueue', 'enqueue' ] );
 add_action( 'wp_ajax_nfbpForm', [ 'NikitaFeedBackPlugin\\Model\Ajax', 'ajaxForm' ] );
 add_action( 'wp_ajax_nopriv_nfbpForm', [ 'NikitaFeedBackPlugin\Model\Ajax', 'ajaxForm' ] );
-$r = NikitaFeedBackPlugin\Controller\DB::query( 'SELECT 1' );
