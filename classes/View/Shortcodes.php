@@ -24,21 +24,21 @@ class Shortcodes {
             if ( 0 !== strpos( $method, 'sc' ) ) {
                 continue;
             }
-            $code = preg_replace( '/^sc/', NIKITA_FEEDBACK__SLUG, $method );
+            $code = preg_replace( '/^sc/', 'nfbp', $method );
             add_shortcode( $code, [ $this, $method ] );
         }
     }
 
     public function scForm( $atts ) {
             $atts = array_merge(
-                '' == $atts ? [] : $atts,
+                '' === (string) $atts ? [] : $atts,
                 [
                     'class'       => '',
-                    'emailLabel'  => __( 'E-mail', NIKITA_FEEDBACK__SLUG ),
-                    'submitLabel' => __( 'Submit', NIKITA_FEEDBACK__SLUG ),
+                    'emailLabel'  => __( 'E-mail', 'nfbp' ),
+                    'submitLabel' => __( 'Submit', 'nfbp' ),
                 ]
             );
-            $out  = '<form name="" method="post" class="' . NIKITA_FEEDBACK__SLUG . '">';
+            $out  = '<form name="" method="post" class="' . 'nfbp' . '">';
             $out .= '<label>';
             $out .= $atts['emailLabel'];
             $out .= '<input name="email" type="email" value="" required="">';

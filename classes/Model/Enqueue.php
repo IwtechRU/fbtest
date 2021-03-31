@@ -13,7 +13,7 @@ namespace NikitaFeedBackPlugin\Model;
 class Enqueue {
     /**
      * Enqueue script to HTML DOM
-     * 
+     *
      * @return void
      */
     public static function enqueue() {
