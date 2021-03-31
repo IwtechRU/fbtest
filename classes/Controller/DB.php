@@ -32,6 +32,18 @@ class DB {
         return self::success( $result );
     }
 
+    public static function insert( $table, $values ) {
+        if ( ! is_array( $values ) || [] === $values ) {
+            return self::fail( 'wrong data' );
+        }
+        $res = self::DB()->insert( self::DB()->prefix . $table, $values );
+        if ( ! $res ) {
+            return self::fail( self::DB()->last_error );
+        }
+        return self::success( $res );
+
+    }
+
     public static function tableCreate( $tableName, $cols ) {
         $table           = self::DB()->prefix . $tableName;
         $charset         = self::DB()->get_charset_collate();

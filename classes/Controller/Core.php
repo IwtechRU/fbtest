@@ -24,7 +24,7 @@ class Core {
     public static function tableCreate() {
 
         $res = DB::tableCreate(
-            NIKITA_FEEDBACK__SLUG . 'emails',
+            NIKITA_FEEDBACK_EMAILSTABLE,
             [
                 'email varchar(320) NOT NULL',
                 'ip varchar(45) NOT NULL',
@@ -39,7 +39,7 @@ class Core {
 
     public static function tableDrop() {
         $res = DB::tableDrop(
-            NIKITA_FEEDBACK__SLUG . 'emails',
+            NIKITA_FEEDBACK_EMAILSTABLE
         );
         delete_option( NIKITA_FEEDBACK__SLUG . 'version' );
     }

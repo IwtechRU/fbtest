@@ -23,10 +23,11 @@ if ( ! function_exists( 'add_action' ) ) {
 
 require __DIR__ . '/vendor/autoload.php';
 
-define( 'NIKITA_FEEDBACK__VERSION', '1.0' );
+define( 'NIKITA_FEEDBACK__VERSION', time() );
 define( 'NIKITA_FEEDBACK__SLUG', 'nfbp' );
 define( 'NIKITA_FEEDBACK_JS', plugin_dir_url( __FILE__ ) . '/dist/main.js' );
 define( 'NIKITA_FEEDBACK_PLUGIN_NAME', 'NIKITA_FEEDBACK_PLUGIN_NAME' );
+define( 'NIKITA_FEEDBACK_EMAILSTABLE', NIKITA_FEEDBACK__SLUG . 'emails' );
 new NikitaFeedBackPlugin\View\Shortcodes();
 register_activation_hook( __FILE__, [ 'NikitaFeedBackPlugin\Controller\Core', 'activate' ] );
 register_deactivation_hook( __FILE__, [ 'NikitaFeedBackPlugin\Controller\Core', 'deactivate' ] );
