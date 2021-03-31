@@ -7,7 +7,7 @@
  * Requires at least:   4.0
  * Requires PHP:        7.2
  * Author:              Nikita Menshutin
- * Text Domain:         nfbp 
+ * Text Domain:         nfbp
  *
  * Copyright: © NS Media Group
  *
@@ -28,6 +28,9 @@ define( 'NIKITA_FEEDBACK__SLUG', 'nfbp' );
 define( 'NIKITA_FEEDBACK_JS', plugin_dir_url( __FILE__ ) . '/dist/main.js' );
 define( 'NIKITA_FEEDBACK_PLUGIN_NAME', 'NIKITA_FEEDBACK_PLUGIN_NAME' );
 new NikitaFeedBackPlugin\View\Shortcodes();
+register_activation_hook( __FILE__, [ 'NikitaFeedBackPlugin\Controller\Core', 'activate' ] );
+register_deactivation_hook( __FILE__, [ 'NikitaFeedBackPlugin\Controller\Core', 'deactivate' ] );
 add_action( 'wp_enqueue_scripts', [ 'NikitaFeedBackPlugin\Model\Enqueue', 'enqueue' ] );
 add_action( 'wp_ajax_nfbpForm', [ 'NikitaFeedBackPlugin\\Model\Ajax', 'ajaxForm' ] );
 add_action( 'wp_ajax_nopriv_nfbpForm', [ 'NikitaFeedBackPlugin\Model\Ajax', 'ajaxForm' ] );
+$r = NikitaFeedBackPlugin\Controller\DB::query( 'SELECT 1' );

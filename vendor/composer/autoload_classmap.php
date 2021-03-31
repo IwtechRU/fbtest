@@ -6,7 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'NikitaFeedBackPlugin\\Controller\\Ajax' => $baseDir . '/classes/Controller/Ajax.php',
+    'NikitaFeedBackPlugin\\Controller\\Core' => $baseDir . '/classes/Controller/Core.php',
+    'NikitaFeedBackPlugin\\Controller\\DB' => $baseDir . '/classes/Controller/DB.php',
+    'NikitaFeedBackPlugin\\Model\\Ajax' => $baseDir . '/classes/Model/Ajax.php',
     'NikitaFeedBackPlugin\\Model\\Enqueue' => $baseDir . '/classes/Model/Enqueue.php',
     'NikitaFeedBackPlugin\\View\\Shortcodes' => $baseDir . '/classes/View/Shortcodes.php',
 );
