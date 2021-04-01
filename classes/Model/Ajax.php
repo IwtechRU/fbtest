@@ -35,10 +35,8 @@ class Ajax {
         if ( ! $res['success'] ) {
             if ( 0 === strpos( $res['result'], 'Duplicate entry' ) ) {
                 wp_send_json_error(
-                    sprintf(
-                        __( 'Email %s already exists', 'nfbp' ),
-                        (string) $_POST['formData']['email']
-                    )
+                /* translators: %s: email */
+                    sprintf( __( 'Email %s already exists', 'nfbp' ), (string) $_POST['formData']['email'] )
                 );
             }
             wp_send_json_error( __( 'Some internal error, won\'t tell you which' ), 'nfbp' );

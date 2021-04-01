@@ -11,6 +11,13 @@ namespace NikitaFeedBackPlugin\Controller;
 
 use NikitaFeedBackPlugin\Controller\DB as DB;
 class Core {
+    /**
+     * Activation hook
+     *
+     * @param bool $networkWide If plugin is network-activated.
+     *
+     * @return void
+     */
     public static function activate( $networkWide ) {
         self::tableCreate();
         if ( is_multisite() && $networkWide ) {
@@ -21,6 +28,14 @@ class Core {
             }
         }
     }
+
+    /**
+     * Create custom table,
+     * Save version number for future updates
+     * if table structure changes.
+     *
+     * @return void
+     */
     public static function tableCreate() {
 
         $res = DB::tableCreate(
@@ -37,6 +52,11 @@ class Core {
         }
     }
 
+    /**
+     * Drop table, clear version from options.
+     *
+     * @return void
+     */
     public static function tableDrop() {
         $res = DB::tableDrop(
             NIKITA_FEEDBACK_EMAILSTABLE
@@ -44,6 +64,13 @@ class Core {
         delete_option( NIKITA_FEEDBACK__SLUG . 'version' );
     }
 
+    /**
+     * Dectivation hook
+     *
+     * @param bool $networkWide If plugin is network-dectivated.
+     *
+     * @return void
+     */
     public static function deactivate( $networkWide ) {
         if ( is_multisite() && $networkWide ) {
             foreach ( get_sites( [ 'fields' => 'ids' ] ) as $blogId ) {

@@ -13,6 +13,11 @@ namespace NikitaFeedBackPlugin\Controller;
 class DB {
 
     private static $wpdb = null;
+    /**
+     * Init Database class if not inited.
+     *
+     * @return class wpdb
+     */
     private static function DB() {
         if ( null === self::$wpdb ) {
             global $wpdb;
@@ -21,14 +26,30 @@ class DB {
         return self::$wpdb;
     }
 
+    /**
+     * Perform SQL query
+     *
+     * @param string $query SQL Query.
+     *
+     * @return bool|string|object SQL result.
+     */
     private static function query( $query ) {
-        $result = self::DB()->query( $query );
+        // @todo some query validation if use any external one.
+        $result = self::DB()->query( (string) $query );
         if ( ! $result ) {
             return self::fail( self::DB()->last_error );
         }
         return self::success( $result );
     }
 
+    /**
+     * Insert data to table.
+     *
+     * @param string $table table name.
+     * @param array  $values associated array of values.
+     *
+     * @return array results with status and SQL message|error.
+     */
     public static function insert( $table, $values ) {
         if ( ! is_array( $values ) || [] === $values ) {
             return self::fail( 'wrong data' );
@@ -41,6 +62,14 @@ class DB {
 
     }
 
+    /**
+     * Create table.
+     *
+     * @param string $table table name.
+     * @param array  $cols Columns with requird arguments.
+     *
+     * @return array results with status and SQL message|error.
+     */
     public static function tableCreate( $tableName, $cols ) {
         $table           = self::DB()->prefix . $tableName;
         $charset         = self::DB()->get_charset_collate();
@@ -51,6 +80,13 @@ class DB {
         return self::query( $query );
     }
 
+    /**
+     * Drop table
+     *
+     * @param string $tableName table name.
+     *
+     * @return array results with status and SQL message|error.
+     */
     public static function tableDrop( $tableName ) {
 
         $table = self::DB()->prefix . $tableName;
@@ -58,6 +94,13 @@ class DB {
         return self::query( $query );
     }
 
+    /**
+     * Return fail.
+     *
+     * @param string $msg error message.
+     *
+     * @return array result.
+     */
     public static function fail( $msg ) {
         return [
             'success' => false,
@@ -65,11 +108,17 @@ class DB {
         ];
     }
 
+    /**
+     * Return success.
+     *
+     * @param string $msg SQL message.
+     *
+     * @return array result.
+     */
     public static function success( $msg ) {
         return [
             'success' => true,
             'result'  => $msg,
         ];
     }
-
 }
