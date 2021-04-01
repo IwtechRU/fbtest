@@ -12,10 +12,23 @@ namespace NikitaFeedBackPlugin\View;
 
 class Shortcodes {
 
+    /**
+     * Iterate methods and register shortcodes.
+     * If need more, just add method with sc prefix.
+     *
+     * @return void
+     */
     function __construct() {
         $this->initShortCodes( get_class_methods( $this ) );
     }
 
+    /**
+     * Register shortcodes
+     *
+     * @param array $methods methods of the entire class.
+     *
+     * @return void
+     */
     private function initShortCodes( $methods ) {
         if ( ! is_array( $methods ) || [] === $methods ) {
             return;
@@ -29,6 +42,13 @@ class Shortcodes {
         }
     }
 
+    /**
+     * Register form shortcode
+     *
+     * @param string|array $atts attributes
+     *
+     * @return void
+     */
     public function scForm( $atts ) {
             $atts = array_merge(
                 '' === (string) $atts ? [] : $atts,

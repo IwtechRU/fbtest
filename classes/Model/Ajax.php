@@ -13,6 +13,15 @@ namespace NikitaFeedBackPlugin\Model;
 use NikitaFeedBackPlugin\Controller\DB as DB;
 class Ajax {
 
+    /**
+     * Process ajax hook.
+     * 1. Validate nonce.
+     * 2. Validate email.
+     * 3. Insert data to DB.
+     * 4. See the SQL result and send json success or error message.
+     *
+     * @return void
+     */
     public static function ajaxForm() {
         if ( ! isset( $_POST['nonce'] ) ) {
             wp_send_json_error();
