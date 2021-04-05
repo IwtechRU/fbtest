@@ -13,7 +13,7 @@
  *
  * @package   NikitaFeedBackPlugin
  * @author    Nikita Menshutin
- * @copyright Copyright © 2021, NS Media Group
+ * @copyright Copyright © 2021
  */
 
 /** Prevent default call */
