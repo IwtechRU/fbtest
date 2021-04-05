@@ -9,7 +9,7 @@
  * Author:              Nikita Menshutin
  * Text Domain:         nfbp
  *
- * Copyright: © NS Media Group
+ * Copyright: © N
  *
  * @package   NikitaFeedBackPlugin
  * @author    Nikita Menshutin
