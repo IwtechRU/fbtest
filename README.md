@@ -1,4 +1,4 @@
-# NSMG Polls 
+# FB Form (test) 
 
 Contributors: Nikita
 Tags: forms, shorcodes
@@ -9,7 +9,7 @@ Stable tag: 1.0
 
 ## Shortocdes
 
-### [nfpb]
+### [nfpbform]
 
 Optional args:
 
